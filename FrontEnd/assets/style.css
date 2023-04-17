@@ -263,5 +263,6 @@ input[type="submit"], #login, #connect {
 #incorrect {
 	color: red;
 	padding: 5px;
+	margin-bottom : 10px;
 	visibility: hidden;
 }

@@ -2,23 +2,24 @@ const logginModal = document.getElementById("logininput");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const form = document.querySelector("form");
+const incorrect = document.getElementById("incorrect");
 
 
-
+// Au clic sur le bouton login, faire apparaitre la modale de connexion
 logginbutton.addEventListener('click', () => {
     logginModal.classList.add("active");
 });
+// Au clic sur le background, fermer la modale de connexion
 bglogin.addEventListener('click', () => {
     logginModal.classList.remove("active");
+    incorrect.style.visibility = "hidden"
+    email.value = "";
+    password.value = "";
 });
 
-
-
-
+// Connexion de l'utilisateur
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log(email.value);
-    // console.log(password.value);
     const requestOption = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -33,27 +34,21 @@ form.addEventListener("submit", (e) => {
     })
     .then(function (data) {
         localStorage.setItem("token", data.token);
-        // ajouter conditions si identifiants incorrects
-console.log(data.token);   
- })
+        email.value = "";
+        password.value = "";
+        if (data.token = data.token) {
+            logginModal.classList.remove("active");
+            incorrect.style.visibility = "hidden";
+        } else {
+            incorrect.style.visibility = "visible";
+        }
+    });
+});
 
 
 
 
 
 
-//     const emailChecker = (value) => {
-//         if (value.match("sophie.bluel@test.tld")) {
-//             email = value;
-//         } else {
-//             incorrect.style.visibility = 'visible';
-//         }
-//       };
-//     const passwordChecker = (value) => {
-//         if (value.match("S0phie")) {
-//           password = value;
-//         } else {
-//             incorrect.style.visibility = 'visible';
-//         }
-//       };
-  });
+//       mail : sophie.bluel@test.tld
+//    mot de passe : S0phie
