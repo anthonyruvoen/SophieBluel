@@ -1,18 +1,35 @@
-const logginModal = document.getElementById("logininput");
+const loginModal = document.getElementById("logininput");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const form = document.querySelector("form");
 const incorrect = document.getElementById("incorrect");
+const editionMode = document.getElementById("adminbar");
+const editionMode2 = document.getElementById("modifier1");
+const editionMode3 = document.getElementById("modifier2");
 
 
 // Au clic sur le bouton login, faire apparaitre la modale de connexion
-logginbutton.addEventListener('click', () => {
-    logginModal.classList.add("active");
+
+loginbutton.addEventListener('click', () => {
+    if (loginbutton.textContent === "login") {
+        loginModal.classList.add("active");
+    } else if (loginbutton.textContent === "logout") {
+        localStorage.clear();
+        loginModal.classList.remove("active");
+        loginbutton.textContent = "login";
+        editionMode.style.marginTop = "-80px";
+        editionMode.style.visibility = "hidden";
+        editionMode2.style.visibility = "hidden";
+        editionMode3.style.visibility = "hidden";
+        container2.style.visibility = "visible";
+        container2.style.height = "auto";
+    }
 });
+
 // Au clic sur le background, fermer la modale de connexion
 bglogin.addEventListener('click', () => {
-    logginModal.classList.remove("active");
-    incorrect.style.visibility = "hidden"
+    loginModal.classList.remove("active");
+    incorrect.style.visibility = "hidden";
     email.value = "";
     password.value = "";
 });
@@ -37,8 +54,15 @@ form.addEventListener("submit", (e) => {
         email.value = "";
         password.value = "";
         if (data.token = data.token) {
-            logginModal.classList.remove("active");
+            loginModal.classList.remove("active");
             incorrect.style.visibility = "hidden";
+            loginbutton.textContent = "logout";
+            editionMode.style.marginTop = "0";
+            editionMode.style.visibility = "visible";
+            editionMode2.style.visibility = "visible";
+            editionMode3.style.visibility = "visible";
+            container2.style.visibility = "hidden";
+            container2.style.height = "20px";
         } else {
             incorrect.style.visibility = "visible";
         }
