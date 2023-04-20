@@ -20,21 +20,21 @@ const getWorks2 = () => {
         for(work in data)     {
             container3.innerHTML += `
             <figure>
-            <img id="workimg${data[work].id}" src=${data[work].imageUrl}>
+            <img id="workimg" src=${data[work].imageUrl}>
             <div id="movework"><i class="fa-solid fa-arrows-up-down-left-right"></i></div>
             <div class="deletework"><i class="fa-solid fa-trash-can"></i></div>
             <figcaption>éditer</figcaption>
             </figure>`
-            var workimg = document.querySelector('#workimg'+data[work].id);
-            var movework = document.querySelector('#movework i');
-            console.log(movework);
+            // var workimg = document.querySelector('#workimg'+data[work].id);
+            // var movework = document.querySelector('#movework i');
+            // console.log(movework);
 
-            workimg.addEventListener('mouseover', () => {
-                movework.classList.add("active");
-            });
-            workimg.addEventListener('mouseout', () => {
-                movework.classList.remove("active");
-            });
+            // workimg.addEventListener('mouseover', () => {
+            //     movework.classList.add("active");
+            // });
+            // workimg.addEventListener('mouseout', () => {
+            //     movework.classList.remove("active");
+            // });
         }        
         
     })
