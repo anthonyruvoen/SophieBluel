@@ -209,8 +209,13 @@ footer nav ul {
 
 /* Page login */
 
-#loginpage {
-	max-height: 1000px;
+
+#logininput {
+	display: none;
+	z-index: 1;
+}
+#logininput.active {
+	display: block;
 }
 #bglogin {
 	width: 100%;
@@ -232,13 +237,6 @@ footer nav ul {
 	padding: 100px;
 	border-radius: 15px;
 	position: absolute;
-}
-#logininput {
-	display: none;
-	z-index: 1;
-}
-#logininput.active {
-	display: block;
 }
 .email-container, .password-container {
 	margin: 50px 0 50px 0;
@@ -315,7 +313,7 @@ input[type="submit"], #login, #connect {
 
 /* page edition */
 
-#bgedit {
+.bgedit {
 	width: 100%;
 	height: 100%;
 	background-color: black;
@@ -341,6 +339,12 @@ input[type="submit"], #login, #connect {
 #closeedit {
 	position: absolute;
 	right: 20px;
+    top: 20px;
+	cursor: pointer;
+}
+#back {
+	position: absolute;
+	left: 20px;
     top: 20px;
 	cursor: pointer;
 }
@@ -386,6 +390,7 @@ input[type="submit"], #login, #connect {
     background-color: black;
     padding: 5px;
     border-radius: 3px;
+	cursor: pointer;
 }
 /* .moveimg {
 	position: absolute;
@@ -408,7 +413,103 @@ input[type="submit"], #login, #connect {
     border-radius: 3px;
     position: absolute;
 	visibility: hidden;
+	cursor: grab;
 }
 figure:hover #movework i {
 	visibility: visible;
+}
+
+
+/* Ajout de travaux */
+#galleryedit2 {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	width: 40%;
+	left: 50%;
+    transform: translate(-50%, 0);
+	transition: 0.3s;
+	padding: 100px;
+	border-radius: 15px;
+	position: absolute;
+}
+#galleryedit2 h2 {
+	display: flex;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 100;
+	font-size: 35px;
+	color: black;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+.add {
+	background-color: #E8F1F6;
+	border-radius: 5px;
+}
+.emptyimg i {
+	display: flex;
+	justify-content: center;
+	font-size: 80px;
+	color: #80808085;
+	margin-top: 30px;
+}
+#loadimg {
+	display: flex;
+	justify-content: center;
+	background-color: #CBD6DC;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-bottom: 20px;
+	padding: 20px;
+	border-radius: 50px;
+	font-size: 24px;
+	color: #306685;
+	cursor: pointer;
+}
+.emptyimg p {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+.emptyimg {
+	display: block;
+}
+.newimg {
+    display: none;
+    margin-left: 35%;
+    margin-right: 35%;
+	justify-content: center;
+}
+input[type="file"] {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+#galleryedit2 label {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+#categorie-select {
+width: 100%;
+height: 51px;
+box-shadow: 5px 5px 20px rgb(234, 233, 233);
+border: none;
+font-size: 20px;
+}
+#worktitle {
+	font-size: 20px;
+}
+.addwork {
+	display: none;
+	z-index: 1;
+}
+.addwork.active {
+	display: block;
+}
+#closeedit2 {
+	position: absolute;
+	right: 20px;
+    top: 20px;
+	cursor: pointer;
 }

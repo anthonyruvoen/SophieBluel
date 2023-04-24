@@ -17,7 +17,7 @@
 		<p>Mode édition</p>
 		<button>publier les changements</button>
 	</div>
-	<div class="mainpage">
+<div class="mainpage">
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -36,7 +36,7 @@
 		</div>
 		<div id="boxlogin">
 		<h2 id="login">Log In</h2>
-		<form action="">
+		<form action="" id="connectbutton">
 			<div class="email-container">
 				<label for="email">Email</label><br><br>
 				<input type="text" autocomplete="off" id="email"><br>
@@ -70,8 +70,9 @@
 
 
 
+		
 		<div class="edition">
-			<div id="bgedit">
+			<div class="bgedit">
 			</div>
 			<div id="galleryedit">
 				<i class="fa-solid fa-xmark" id="closeedit"></i>
@@ -80,13 +81,47 @@
 					
 				</div>
 				<div id="galleryborder"></div>
-				<form action="">
+				<form action="" id="addphotobutton">
 					<input type="submit" value="Ajouter une photo"><br>
 					<a href="" id="deletework">Supprimer la galerie</a>
 				</form>
 			</div>
 		</div>
 
+
+		<div class="addwork">
+			<div class="bgedit">
+			</div>
+			<div id="galleryedit2">
+				<i class="fa-solid fa-arrow-left" id="back"></i>
+				<i class="fa-solid fa-xmark" id="closeedit2"></i>
+				<h2>Ajout photo</h2>
+				
+				<div class="add">
+					<div class="newimg"><img src="" id ="img" alt=""></div>
+					<div class="emptyimg">
+					<i class="fa-sharp fa-regular fa-image"></i>
+					<input type="file" accept=".jpg, .png" id="file">
+					<label for="file" id="loadimg">+ Ajouter photo</label>
+					<p>jpg, png : 4mo max</p>
+					</div>
+				</div>
+
+				<label for="worktitle">Titre</label>
+				<input type="text" name="Titre" id="worktitle">
+				<label for="categorie-select">Catégorie</label>
+				<select name="categorie" id="categorie-select">
+					<option value selected disabled=""></option>
+					<option value="objets">Objets</option>
+					<option value="appartements">Appartements</option>
+					<option value="hotels">Hôtels & Restaurants</option>
+				</select>
+				<div id="galleryborder"></div>
+				<form action="" id="addvalidationbutton">
+					<input type="submit" value="Valider"><br>
+				</form>
+			</div>
+		</div>
 
 
 	<section id="portfolio">
