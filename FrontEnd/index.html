@@ -83,7 +83,7 @@
 				<div id="galleryborder"></div>
 				<form action="" id="addphotobutton">
 					<input type="submit" value="Ajouter une photo"><br>
-					<a href="" id="deletework">Supprimer la galerie</a>
+					<a href="" id="deletegallery">Supprimer la galerie</a>
 				</form>
 			</div>
 		</div>
@@ -107,18 +107,18 @@
 					</div>
 				</div>
 
+				<form action="" id="validatework">
 				<label for="worktitle">Titre</label>
 				<input type="text" name="Titre" id="worktitle">
 				<label for="categorie-select">Catégorie</label>
 				<select name="categorie" id="categorie-select">
 					<option value selected disabled=""></option>
-					<option value="objets">Objets</option>
-					<option value="appartements">Appartements</option>
-					<option value="hotels">Hôtels & Restaurants</option>
+					<option value="1">Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hôtels & Restaurants</option>
 				</select>
 				<div id="galleryborder"></div>
-				<form action="" id="addvalidationbutton">
-					<input type="submit" value="Valider"><br>
+					<input type="submit" value="Valider" id="submitbutton"><br>
 				</form>
 			</div>
 		</div>

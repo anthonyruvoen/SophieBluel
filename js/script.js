@@ -8,7 +8,6 @@ const getCategories = () => {
         return res.json()
     })
     .then(function (data) {
-        console.log (data)
         for(categorie in data)     {
             container2.innerHTML += 
             `<button id="${data[categorie].id}">${data[categorie].name}</button>`
@@ -38,6 +37,7 @@ const getWorks = (categoryid) => {
         return res.json()
     })
     .then(function (data) {
+        console.log (data)
         if (categoryid && categoryid !== "all") {
             data=data.filter(x => x.categoryId==categoryid)
         }

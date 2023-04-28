@@ -136,7 +136,10 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
+	height: 100%;
+}
+figure {
+	margin-bottom: 10px;
 }
 #contact {
 	width: 50%;
@@ -222,7 +225,7 @@ footer nav ul {
 	height: 100%;
 	background-color: black;
 	opacity: 0.7;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	right: 0;
@@ -236,7 +239,7 @@ footer nav ul {
 	transition: 0.3s;
 	padding: 100px;
 	border-radius: 15px;
-	position: absolute;
+	position: fixed;
 }
 .email-container, .password-container {
 	margin: 50px 0 50px 0;
@@ -318,7 +321,7 @@ input[type="submit"], #login, #connect {
 	height: 100%;
 	background-color: black;
 	opacity: 0.7;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	right: 0;
@@ -328,13 +331,14 @@ input[type="submit"], #login, #connect {
 	display: flex;
 	flex-direction: column;
 	background-color: white;
-	width: 40%;
+	width: 25%;
 	left: 50%;
     transform: translate(-50%, 0);
 	transition: 0.3s;
-	padding: 100px;
+	padding: 80px 80px 20px 80px;
 	border-radius: 15px;
-	position: absolute;
+	position: fixed;
+	margin-top: -550px;
 }
 #closeedit {
 	position: absolute;
@@ -379,13 +383,18 @@ input[type="submit"], #login, #connect {
 .works img {
 	width: 100%;
 }
+#deletegallery {
+	justify-content: center;
+    display: flex;
+    margin-bottom: 15px;
+}
 .deletework {
 	position: absolute;
+	margin-left: 3px;
 }
 .deletework i {
-    position: absolute;
-	bottom: 130px;
-    left: 90px;
+	font-size: smaller;
+	margin-top: 20%;
     color: white;
     background-color: black;
     padding: 5px;
@@ -401,21 +410,23 @@ input[type="submit"], #login, #connect {
 	/* visibility: visible; */
 
 /* } */
-#movework {
+.movework {
     position: absolute;
+	margin-left: 3px;
+
 }
-#movework i {
-	bottom: 130px;
-    left: 60px;
+.movework i {
+	font-size: smaller;
+	margin-top: 18%;
+    margin-left: 100%;
     color: white;
     background-color: black;
     padding: 5px;
     border-radius: 3px;
-    position: absolute;
 	visibility: hidden;
 	cursor: grab;
 }
-figure:hover #movework i {
+figure:hover .movework i {
 	visibility: visible;
 }
 
@@ -425,13 +436,14 @@ figure:hover #movework i {
 	display: flex;
 	flex-direction: column;
 	background-color: white;
-	width: 40%;
+	width: 25%;
 	left: 50%;
     transform: translate(-50%, 0);
 	transition: 0.3s;
-	padding: 100px;
+	padding: 80px 80px 20px 80px;
 	border-radius: 15px;
-	position: absolute;
+	position: fixed;
+	margin-top: -550px;
 }
 #galleryedit2 h2 {
 	display: flex;
@@ -480,6 +492,10 @@ figure:hover #movework i {
     margin-right: 35%;
 	justify-content: center;
 }
+#img {
+	max-width: 100%;
+    max-height: 100%;
+}
 input[type="file"] {
 	height: 0;
 	width: 0;
@@ -512,4 +528,31 @@ font-size: 20px;
 	right: 20px;
     top: 20px;
 	cursor: pointer;
+}
+#submitbutton {
+	background-color: #A7A7A7;
+	cursor: unset;
+	pointer-events: none;
+}
+#submitbutton.active {
+	background-color: #1D6154;
+	cursor: pointer;
+	pointer-events: all;
+}
+
+
+@media screen and (min-width: 1300px) and (max-width: 1600px) {
+	#galleryedit, #galleryedit2 {
+		width: 35%;
+	}
+}
+@media screen and (max-width: 1300px) {
+
+	.deletework i, .movework i {
+		font-size: 8px;
+	}
+	#galleryedit, #galleryedit2 {
+		width: 45%;
+		margin-top: -450px;
+	}
 }

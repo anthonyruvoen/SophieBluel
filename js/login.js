@@ -13,6 +13,7 @@ const editionMode3 = document.getElementById("modifier2");
 loginbutton.addEventListener('click', () => {
     if (loginbutton.textContent === "login") {
         loginModal.classList.add("active");
+        body.style.overflow = "hidden";
     } else if (loginbutton.textContent === "logout") {
         localStorage.clear();
         loginModal.classList.remove("active");
@@ -30,6 +31,7 @@ loginbutton.addEventListener('click', () => {
 bglogin.addEventListener('click', () => {
     loginModal.classList.remove("active");
     incorrect.style.visibility = "hidden";
+    body.style.overflow = null;
     email.value = "";
     password.value = "";
 });
@@ -54,6 +56,7 @@ form.addEventListener("submit", (e) => {
         email.value = "";
         password.value = "";
         if (data.token = data.token) {
+            all.click();
             loginModal.classList.remove("active");
             incorrect.style.visibility = "hidden";
             loginbutton.textContent = "logout";
@@ -63,6 +66,7 @@ form.addEventListener("submit", (e) => {
             editionMode3.style.visibility = "visible";
             container2.style.visibility = "hidden";
             container2.style.height = "20px";
+            body.style.overflow = null;
         } else {
             incorrect.style.visibility = "visible";
         }
