@@ -16,8 +16,7 @@ const getCategories = () => {
 
         for(let filter of filters){
             filter.addEventListener("click", function(e){
-               console.log(filter);
-               let categoryid=e.target.getAttribute('id')
+                let categoryid=e.target.getAttribute('id')
                getWorks(categoryid)
             }
             );
@@ -37,11 +36,12 @@ const getWorks = (categoryid) => {
         return res.json()
     })
     .then(function (data) {
-        console.log (data)
+        // console.log (data)
         if (categoryid && categoryid !== "all") {
             data=data.filter(x => x.categoryId==categoryid)
         }
         for(work in data)     {
+            // console.log(data[work].id);
             container.innerHTML += `<figure>
             <img src=${data[work].imageUrl}>
             <figcaption>${data[work].title}</figcaption>
@@ -52,5 +52,7 @@ const getWorks = (categoryid) => {
 }
 
 getWorks()
+
+
 
 

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="https://kit.fontawesome.com/b5c8027d81.js" crossorigin="anonymous"></script>
@@ -101,7 +101,7 @@
 					<div class="newimg"><img src="" id ="img" alt=""></div>
 					<div class="emptyimg">
 					<i class="fa-sharp fa-regular fa-image"></i>
-					<input type="file" accept=".jpg, .png" id="file">
+					<input type="file" name="file" accept=".jpg, .png" id="file">
 					<label for="file" id="loadimg">+ Ajouter photo</label>
 					<p>jpg, png : 4mo max</p>
 					</div>
@@ -109,9 +109,9 @@
 
 				<form action="" id="validatework">
 				<label for="worktitle">Titre</label>
-				<input type="text" name="Titre" id="worktitle">
+				<input type="text" name="title" id="worktitle">
 				<label for="categorie-select">Catégorie</label>
-				<select name="categorie" id="categorie-select">
+				<select name="category" id="categorie-select">
 					<option value selected disabled=""></option>
 					<option value="1">Objets</option>
 					<option value="2">Appartements</option>

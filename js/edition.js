@@ -48,24 +48,45 @@ const getWorks2 = () => {
             container3.innerHTML += `
             <figure>
             <div class="movework"><i class="fa-solid fa-arrows-up-down-left-right"></i></div>
-            <div class="deletework"><i class="fa-solid fa-trash-can"></i></div>
+            <div class="deletework" id=${data[work].id}><i class="fa-solid fa-trash-can"></i></div>
             <div><img id="workimg" src=${data[work].imageUrl}>
             <figcaption>éditer</figcaption>
             </div>
             </figure>`
-        }       
 
-//Suppression d'un travail au clic sur la poubelle
-
-    const deleteWork = document.querySelector('.deletework i');
+            // Suppression d'un travail au clic sur la poubelle
             
-            deleteWork.addEventListener('click', (e) => {
-                console.log(data.id);
-            });
+            let trashBtn = document.querySelectorAll('.deletework');
+            
+                for (let i = 0; i < trashBtn.length; i++) {
+                    trashBtn[i].addEventListener('click', () => {
+                        const confirmYes = confirm('Confirmer la suppression ?')
+                        if (confirmYes) {
+                            let id = trashBtn[i].id;
+                            fetch(`http://localhost:5678/api/works/` + id, {
+                                method: "DELETE",
+                                body: null,
+                                headers: {
+                                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                                },     
+                            })
+                            // .then(res => res.json())
+                            .then(data)
+                            .catch(err)
+                            .then(function () {
+                                getWorks()
+                                getWorks2()
+                            });
+                        }
+                    })
+                }
+        }           
     })
 }
+getWorks2();
 
-getWorks2()
+    
+
 
 
 // ouverture et fermeture de la page d'ajout de projet
@@ -144,32 +165,49 @@ formvalidation.addEventListener('change', () => {
 // Valider l'ajout d'un projet
 
 
-submitbutton.addEventListener('click', (e) => {
+formvalidation.addEventListener('submit', function(e) {
     e.preventDefault();
-    const sendImg = {
+    
+    
+    
+    const userFile = document.getElementById('file').files[0];
+    const userTitle = document.getElementById('worktitle').value;
+    const userCategory = document.getElementById('categorie-select').value;
+    
+    const formData = new FormData();
+    formData.append('image', userFile, 'image.jpg');
+    formData.append('title', userTitle);
+    formData.append('category', userCategory);
+    
+    fetch('http://localhost:5678/api/works', {
         method: "POST",
-        body: JSON.stringify({
-            category: `{id: ${categorieSelect.value}, name: ${categorieSelect.value}}`,
-            imageUrl: imgdisplay.files,
-            title: worktitle.value,
-            }),
+        body: formData,
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-    };
-    fetch('http://localhost:5678/api/works', sendImg)
-    .then((res)  => {
-
-        console.log(sendImg.body)
-        return res.json()
+        },     
     })
-    .then(() => {
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+    .then(function () {
         addwork.classList.remove("active");
         workedit.classList.remove("active");
         body.style.overflow = null;
-        container.innerHTML += `<figure>
-            <img src=${imgdisplay.src}>
-            <figcaption>${worktitle.value}</figcaption>
-        </figure>`
-    });
- });
+        worktitle.value = "";
+        categorieSelect.value = "";
+        emptyimg.style.display = "block";
+        newimg.style.display = "none";
+        imgdisplay.src = "";
+        submitbutton.classList.remove("active");
+    })
+    .then(function () {
+        getWorks();
+        getWorks2();
+
+    })          
+});
+    
+//     submitbutton.addEventListener('click', () => {
+
+
+// })

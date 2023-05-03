@@ -209,6 +209,12 @@ footer nav ul {
     padding: 10px;
 	cursor: pointer;
 }
+.filters > button:focus {
+    color: white;
+    background-color: #1D6154;
+    border: 1px solid white;
+}
+
 
 /* Page login */
 
@@ -382,6 +388,9 @@ input[type="submit"], #login, #connect {
 }
 .works img {
 	width: 100%;
+    max-width: 90px;
+    max-height: 90px;
+    object-fit: cover;
 }
 #deletegallery {
 	justify-content: center;
@@ -401,15 +410,6 @@ input[type="submit"], #login, #connect {
     border-radius: 3px;
 	cursor: pointer;
 }
-/* .moveimg {
-	position: absolute;
-	visibility: hidden;
-} */
-/* .editimg:hover .moveimg {
-	/* position: absolute; */
-	/* visibility: visible; */
-
-/* } */
 .movework {
     position: absolute;
 	margin-left: 3px;
@@ -457,6 +457,7 @@ figure:hover .movework i {
 .add {
 	background-color: #E8F1F6;
 	border-radius: 5px;
+	margin-bottom: 5px;
 }
 .emptyimg i {
 	display: flex;
@@ -501,8 +502,8 @@ input[type="file"] {
 	width: 0;
 	overflow: hidden;
 }
-#galleryedit2 label {
-	margin-top: 20px;
+#galleryedit2 label, #worktitle, #categorie-select {
+	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size: 20px;
 }
@@ -552,7 +553,77 @@ font-size: 20px;
 		font-size: 8px;
 	}
 	#galleryedit, #galleryedit2 {
-		width: 45%;
-		margin-top: -450px;
+		width: 35%;
+		margin-top: -600px;
+		padding: 20px 80px 20px 80px;
+	}
+	#boxlogin {
+		padding: 20px 100px 20px 100px;
+	}
+	input[type="submit"] {
+		margin: none;
+	}
+	#incorrect {
+		padding: none;
+	}
+	.email-container, .password-container {
+		margin: 20px 0 20px 0;
+	}
+	.works {
+		grid-row-gap: 0;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	}
+	#galleryedit h2 {
+		margin-bottom: 20px;
+	}
+	#galleryborder {
+		margin-top: none;
+	}
+	#addphotobutton input {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.emptyimg i {
+		font-size: 40px;
+		margin-top: 10px;
+	}
+	.emptyimg p {
+		margin-bottom: 10px;
+	}
+	#galleryedit2 label {
+		margin-top: 0px;
+		margin-bottom: 10px;
+		font-size: 14px;
+	}
+	#galleryedit2 h2 {
+		font-size: 25px;
+		margin-bottom: 30px;
+	}
+	#submitbutton {
+		margin-bottom: 0;
+	}
+	#validatework input {
+		height: 35px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#categorie-select {
+		height: 35px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+}
+@media screen and (max-width: 1100px) {
+
+
+	#galleryedit, #galleryedit2 {
+		margin-top: -500px;
+	}
+}
+@media screen and (max-width: 800px) {
+
+	.works {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	}
 }
