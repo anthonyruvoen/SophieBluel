@@ -70,12 +70,9 @@ const getWorks2 = () => {
                                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                                 },     
                             })
-                            // .then(res => res.json())
-                            .then(data)
-                            .catch(err)
                             .then(function () {
-                                getWorks()
-                                getWorks2()
+                                getWorks();
+                                getWorks2();
                             });
                         }
                     })
@@ -85,7 +82,6 @@ const getWorks2 = () => {
 }
 getWorks2();
 
-    
 
 
 
@@ -150,16 +146,20 @@ displayImage = (e, file) => {
 const worktitle = document.querySelector('#worktitle');
 const categorieSelect = document.querySelector('#categorie-select');
 const formvalidation = document.querySelector('#validatework');
+const errormsg = document.querySelector('#errormsg');
 
 formvalidation.addEventListener('change', () => {
-    if ((worktitle.value !== "" 
-    && categorieSelect.value !== "" 
+    if ((worktitle.value !== '' 
+    && categorieSelect.value !== '' 
     && newimg.style.display === 'flex')) {
-        submitbutton.classList.add("active");
+        submitbutton.classList.add('active');
+        errormsg.style.display = 'none';
     } else {  
-        submitbutton.classList.remove("active");
+        submitbutton.classList.remove('active');
+        errormsg.style.display = 'flex';
     }
 });
+
 
 
 // Valider l'ajout d'un projet
@@ -207,7 +207,3 @@ formvalidation.addEventListener('submit', function(e) {
     })          
 });
     
-//     submitbutton.addEventListener('click', () => {
-
-
-// })

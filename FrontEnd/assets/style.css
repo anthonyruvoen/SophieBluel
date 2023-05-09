@@ -540,6 +540,15 @@ font-size: 20px;
 	cursor: pointer;
 	pointer-events: all;
 }
+#errormsg {
+	color: red;
+	display: none;
+	justify-content: center;
+}
+/* #errormsg.active {
+	display: flex;
+	color: red;
+} */
 
 
 @media screen and (min-width: 1300px) and (max-width: 1600px) {
