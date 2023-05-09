@@ -2,6 +2,8 @@ const container2 = document.querySelector('.filters');
 const allbutton = document.querySelector('#all');
 
 
+// Afficher les différents filtres
+
 const getCategories = () => {
     fetch('http://localhost:5678/api/categories')
     .then(function (res) {
@@ -26,7 +28,7 @@ const getCategories = () => {
 
 getCategories()
 
-
+// Récupérer et afficher les travaux
 
 const container = document.querySelector('.gallery');
 const getWorks = (categoryid) => {
@@ -36,12 +38,10 @@ const getWorks = (categoryid) => {
         return res.json()
     })
     .then(function (data) {
-        // console.log (data)
         if (categoryid && categoryid !== "all") {
             data=data.filter(x => x.categoryId==categoryid)
         }
         for(work in data)     {
-            // console.log(data[work].id);
             container.innerHTML += `<figure>
             <img src=${data[work].imageUrl}>
             <figcaption>${data[work].title}</figcaption>

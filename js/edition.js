@@ -187,8 +187,6 @@ formvalidation.addEventListener('submit', function(e) {
         },     
     })
     .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
     .then(function () {
         addwork.classList.remove("active");
         workedit.classList.remove("active");
