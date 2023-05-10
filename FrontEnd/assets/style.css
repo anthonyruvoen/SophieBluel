@@ -532,8 +532,8 @@ font-size: 20px;
 }
 #submitbutton {
 	background-color: #A7A7A7;
-	cursor: unset;
-	pointer-events: none;
+	cursor: pointer;
+	pointer-events: visible;
 }
 #submitbutton.active {
 	background-color: #1D6154;
@@ -545,10 +545,6 @@ font-size: 20px;
 	display: none;
 	justify-content: center;
 }
-/* #errormsg.active {
-	display: flex;
-	color: red;
-} */
 
 
 @media screen and (min-width: 1300px) and (max-width: 1600px) {

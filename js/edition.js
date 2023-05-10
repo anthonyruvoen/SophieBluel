@@ -22,6 +22,7 @@ closeedit.addEventListener('click', () => {
         emptyimg.style.display = "block";
         imgdisplay.src = "";
         submitbutton.classList.remove("active");
+        errormsg.style.display = 'none';
 });
 bgedit.addEventListener('click', () => {
         workedit.classList.remove("active");
@@ -31,6 +32,7 @@ bgedit.addEventListener('click', () => {
         emptyimg.style.display = "block";
         imgdisplay.src = "";
         submitbutton.classList.remove("active");
+        errormsg.style.display = 'none';
 });
 
 
@@ -106,6 +108,7 @@ closeedit2.addEventListener('click', () => {
     newimg.style.display = "none";
     imgdisplay.src = "";
     submitbutton.classList.remove("active");
+    errormsg.style.display = 'none';
 });
 
 
@@ -135,29 +138,50 @@ function previewFile() {
 }
 
 displayImage = (e, file) => {
-    
-    imgdisplay.src = e.target.result;
-    newimg.appendChild(imgdisplay);
-    newimg.style.display = 'flex';
-    emptyimg.style.display = 'none';
+    if (worktitle.value !== '' 
+    && categorieSelect.value !== ''
+    && imgdisplay.src !== '') {
+        errormsg.style.display = 'none';
+        imgdisplay.src = e.target.result;
+        newimg.appendChild(imgdisplay);
+        newimg.style.display = 'flex';
+        emptyimg.style.display = 'none';
+        submitbutton.classList.add('active');
+    } else {
+        imgdisplay.src = e.target.result;
+        newimg.appendChild(imgdisplay);
+        newimg.style.display = 'flex';
+        emptyimg.style.display = 'none';
+        submitbutton.classList.add('active');
+        submitbutton.classList.remove('active');
+    }
 }
 
 // Changer la couleur du bouton valider quand les champs sont remplis
+
 const worktitle = document.querySelector('#worktitle');
 const categorieSelect = document.querySelector('#categorie-select');
 const formvalidation = document.querySelector('#validatework');
 const errormsg = document.querySelector('#errormsg');
 
 formvalidation.addEventListener('change', () => {
-    if ((worktitle.value !== '' 
+    submitbutton.classList.remove('active');
+    if ((worktitle.value.length > 0 
     && categorieSelect.value !== '' 
-    && newimg.style.display === 'flex')) {
+    && emptyimg.style.display === 'none')) {
         submitbutton.classList.add('active');
         errormsg.style.display = 'none';
-    } else {  
-        submitbutton.classList.remove('active');
-        errormsg.style.display = 'flex';
     }
+});
+
+// Afficher et masquer le message d'erreur
+
+submitbutton.addEventListener('click', () => {
+    if (submitbutton.classList.contains('active'))
+         errormsg.style.display = 'none';
+         else {
+        errormsg.style.display = 'flex';
+         }
 });
 
 
@@ -188,20 +212,21 @@ formvalidation.addEventListener('submit', function(e) {
     })
     .then(res => res.json())
     .then(function () {
-        addwork.classList.remove("active");
-        workedit.classList.remove("active");
-        body.style.overflow = null;
-        worktitle.value = "";
-        categorieSelect.value = "";
-        emptyimg.style.display = "block";
-        newimg.style.display = "none";
-        imgdisplay.src = "";
-        submitbutton.classList.remove("active");
-    })
-    .then(function () {
-        getWorks();
-        getWorks2();
-
-    })          
+        if (submitbutton.classList.contains('active')) {
+            addwork.classList.remove("active");
+            workedit.classList.remove("active");
+            body.style.overflow = null;
+            worktitle.value = "";
+            categorieSelect.value = "";
+            emptyimg.style.display = "block";
+            newimg.style.display = "none";
+            imgdisplay.src = "";
+            submitbutton.classList.remove('active');
+            getWorks();
+            getWorks2();
+        } else {
+            submitbutton.classList.remove("active");
+        }
+    })        
 });
     
